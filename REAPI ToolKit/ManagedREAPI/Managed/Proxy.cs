@@ -75,7 +75,7 @@ namespace RaisersEdge.API.ToolKit.Managed
     public class SingletonProxy : BaseProxy
     {
         #region Constants
-        private static string RESerial = "RE7ASAREA301835";
+        private static string RESerial = "WRE11111";
 
         private static string RETestAccount = "Supervisor";
         private static string RETestPassword = "admin";
@@ -86,7 +86,7 @@ namespace RaisersEdge.API.ToolKit.Managed
         private static string REProductionAccountSeconday = "";
         private static string REProductionSecondayPassword = "";
 
-        private static int RETestDatabaseNumber = 1;
+        private static int RETestDatabaseNumber = 50;
         private static int REProductionDatabaseNumber = 1;
         #endregion
 
