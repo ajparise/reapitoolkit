@@ -5,9 +5,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagedREAPI", "ManagedREAP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GarbageConsole", "GarbageConsole\GarbageConsole.csproj", "{08DB0F7D-0718-4202-BC3D-A2DDCBC9DD48}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebExample", "ExampleLinqIntegration\WebExample.csproj", "{FDA1031B-4F89-4D37-8B51-448D063F4A7F}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
+		SccNumberOfProjects = 4
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs09.codeplex.com/
 		SccLocalPath0 = .
@@ -17,6 +19,9 @@ Global
 		SccProjectUniqueName2 = GarbageConsole\\GarbageConsole.csproj
 		SccProjectName2 = GarbageConsole
 		SccLocalPath2 = GarbageConsole
+		SccProjectUniqueName3 = ExampleLinqIntegration\\WebExample.csproj
+		SccProjectName3 = ExampleLinqIntegration
+		SccLocalPath3 = ExampleLinqIntegration
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +36,10 @@ Global
 		{08DB0F7D-0718-4202-BC3D-A2DDCBC9DD48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08DB0F7D-0718-4202-BC3D-A2DDCBC9DD48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08DB0F7D-0718-4202-BC3D-A2DDCBC9DD48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDA1031B-4F89-4D37-8B51-448D063F4A7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDA1031B-4F89-4D37-8B51-448D063F4A7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDA1031B-4F89-4D37-8B51-448D063F4A7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDA1031B-4F89-4D37-8B51-448D063F4A7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -23,7 +23,7 @@ namespace RaisersEdge.API.ToolKit.Managed.Entities
         public Query(String queryName)
             : base()
         {
-            context = RaisersEdge.API.ToolKit.Managed.Singleton<SingletonProxy>.Instance.ManagedSessionContext;
+            context = RaisersEdge.API.ToolKit.Managed.SingletonProxy.Instance.ManagedSessionContext;
             this.Init(ref context);
             this.LoadByField(Blackbaud.PIA.RE7.BBREAPI.bbQueryUniqueFields.uf_QUERY_NAME, queryName);
             initializeErrorTable();
@@ -32,7 +32,7 @@ namespace RaisersEdge.API.ToolKit.Managed.Entities
         public Query(int queryID)
             : base()
         {
-            context = RaisersEdge.API.ToolKit.Managed.Singleton<SingletonProxy>.Instance.ManagedSessionContext;
+            context = RaisersEdge.API.ToolKit.Managed.SingletonProxy.Instance.ManagedSessionContext;
             this.Init(ref context);
             this.Load(queryID);
             _queryName = Convert.ToString(this.get_Fields(Blackbaud.PIA.RE7.BBREAPI.EQUERIES2Fields.QUERIES2_fld_NAME));
@@ -58,7 +58,7 @@ namespace RaisersEdge.API.ToolKit.Managed.Entities
             initializeErrorTable();
         }
 
-        public System.Data.DataTable ExecuteQuerySetAsDataTable()
+        public System.Data.DataTable OpenQuerySetAsDataTable()
         {
             try
             {
@@ -143,6 +143,11 @@ namespace RaisersEdge.API.ToolKit.Managed.Entities
             {
                 return false;
             }
+        }
+
+        public static bool QueryExists(string queryName)
+        {
+            return QueryExists(queryName, RaisersEdge.API.ToolKit.Managed.SingletonProxy.Instance.ManagedSessionContext);
         }
     }
 }

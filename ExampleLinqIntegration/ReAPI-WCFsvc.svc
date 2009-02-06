@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="ExampleLinqIntegration.ReAPI_WCFsvc" CodeBehind="ReAPI-WCFsvc.svc.cs" %>
