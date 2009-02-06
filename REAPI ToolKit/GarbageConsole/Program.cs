@@ -33,6 +33,7 @@ namespace GarbageConsole
             apiRecord.Save();
 
             p.Dispose();
+
         }
     }
 }

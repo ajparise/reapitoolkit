@@ -17,7 +17,7 @@ namespace RaisersEdge.API.ToolKit.Managed.Entities
         {
             try
             {
-                sess = Singleton<SingletonProxy>.Instance.ManagedSessionContext;
+                sess = SingletonProxy.Instance.ManagedSessionContext;
                 base.Init(ref sess);
             }
             catch (System.Exception comError)
@@ -44,7 +44,7 @@ namespace RaisersEdge.API.ToolKit.Managed.Entities
         {
             try
             {
-                sess = Singleton<SingletonProxy>.Instance.ManagedSessionContext;
+                sess = SingletonProxy.Instance.ManagedSessionContext;
                 base.Init(ref sess);
                 base.Load(sysID, readOnly);
             }
@@ -94,7 +94,7 @@ namespace RaisersEdge.API.ToolKit.Managed.Entities
         {
             try
             {
-                sess = Singleton<SingletonProxy>.Instance.ManagedSessionContext;
+                sess = SingletonProxy.Instance.ManagedSessionContext;
                 base.Init(ref sess);
                 base.LoadByField(field, value);
                 base.ReadOnlyMode = readOnly;
@@ -155,7 +155,7 @@ namespace RaisersEdge.API.ToolKit.Managed.Entities
         public void Dispose()
         {
             base.CloseDown();
-            ProxyCleanUp.ReleaseComObject((Blackbaud.PIA.RE7.BBREAPI.CRecordClass)this);
+            //ProxyCleanUp.ReleaseComObject((Blackbaud.PIA.RE7.BBREAPI.CRecordClass)this);
         }
 
         #endregion
