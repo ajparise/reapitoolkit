@@ -10,7 +10,7 @@ namespace RaisersEdge.API.ToolKit.Managed
         /// <summary>
         /// Gets the singleton instance.
         /// </summary>
-        public static T Instance
+        private static T Instance
         {
             get
             {

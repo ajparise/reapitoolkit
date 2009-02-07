@@ -12,5 +12,14 @@ namespace RaisersEdge.API.ToolKit.Managed.Mapping
         T CopyInto<T>(T dataObject);
 
         T UpdateFrom<T>(T dataObject);
+    }    
+
+    public interface IMappingList
+    {
+        IEnumerable<T> CopyInto<T>() where T : new();
+
+        IEnumerable<T> CopyInto<T>(IEnumerable<T> dataObjects);
+
+        IEnumerable<T> UpdateFrom<T>(IEnumerable<T> dataObjects);
     }
 }

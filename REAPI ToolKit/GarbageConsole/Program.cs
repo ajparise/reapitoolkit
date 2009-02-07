@@ -15,7 +15,10 @@ namespace GarbageConsole
         {
             // Start the managed API Proxy
             RaisersEdge.API.ToolKit.Managed.BaseProxy p = new RaisersEdge.API.ToolKit.Managed.BaseProxy(RESerial, RETestAccount, REPassword, DBNumber, Blackbaud.PIA.RE7.BBREAPI.AppMode.amServer);
-            
+
+            RaisersEdge.API.ToolKit.Managed.Entities.Query managedQuery = new RaisersEdge.API.ToolKit.Managed.Entities.Query("All Members");
+            List <ExampleLinqIntegration.AllMembersQueryRow> result = managedQuery.LoadQuerySetInto<ExampleLinqIntegration.AllMembersQueryRow>();
+
             // Load an API Record
             RaisersEdge.API.ToolKit.Managed.Entities.Record apiRecord = new RaisersEdge.API.ToolKit.Managed.Entities.Record(Blackbaud.PIA.RE7.BBREAPI.bbRECORDUniqueFields.uf_Record_CONSTITUENT_ID, "3", false, p.SessionContext);
 

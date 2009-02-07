@@ -120,6 +120,108 @@ namespace RaisersEdge.API.ToolKit.Managed.Entities
             }
         }
 
+        private class QueryField
+        {
+            public int Index { get; set; }
+            public string FieldName { get; set; }
+
+            private Blackbaud.PIA.RE7.BBREAPI.bbQuerySetFieldTypes _BBFieldType;
+            public Blackbaud.PIA.RE7.BBREAPI.bbQuerySetFieldTypes BBFieldType
+            {
+                get
+                {
+                    return _BBFieldType;
+                }
+                set
+                {
+                    _BBFieldType = value;
+                    switch (value)
+                    {
+                        case Blackbaud.PIA.RE7.BBREAPI.bbQuerySetFieldTypes.bbqueryset_Date:
+                            {
+                                _fieldType = typeof(DateTime);
+                                break;
+                            }
+                        case Blackbaud.PIA.RE7.BBREAPI.bbQuerySetFieldTypes.bbqueryset_Double:
+                            {
+                                _fieldType = typeof(Double);
+                                break;
+                            }
+                        case Blackbaud.PIA.RE7.BBREAPI.bbQuerySetFieldTypes.bbqueryset_Long:
+                            {
+                                _fieldType = typeof(long);
+                                break;
+                            }
+                        case Blackbaud.PIA.RE7.BBREAPI.bbQuerySetFieldTypes.bbqueryset_Memo:
+                        case Blackbaud.PIA.RE7.BBREAPI.bbQuerySetFieldTypes.bbqueryset_Text:
+                            {
+                                _fieldType = typeof(String);
+                                break;
+                            }
+                    }
+                }
+            }
+
+            private Type _fieldType;
+            public Type FieldType
+            {
+                get
+                {
+                    return _fieldType;
+                }
+            }
+        }
+
+        private static Type baseType = typeof(RaisersEdge.API.ToolKit.Managed.Mapping.Attributes.QueryMappingAttribute);
+
+        public List<T> LoadQuerySetInto<T>() where T : new()
+        {
+            Dictionary<string, QueryField> queryFields = new Dictionary<string, QueryField>();
+            this.QuerySet.OpenQuerySet();
+
+            for (int i = 1; i <= this.QuerySet.FieldCount; i++)
+            {
+                queryFields.Add(this.QuerySet.get_FieldName(i), new QueryField { Index = i, FieldName = this.QuerySet.get_FieldName(i), BBFieldType = this.QuerySet.get_FieldType(i) });
+            }
+
+            List<T> resultSet = new List<T>();
+            IEnumerable<System.Reflection.PropertyInfo> propsToLoad = typeof(T).GetProperties().Where(p => p.IsDefined(baseType, true) && p.GetSetMethod().IsPublic);
+
+
+            while (!Convert.ToBoolean(this.QuerySet.EOF))
+            {
+                T row = new T();
+                foreach (System.Reflection.PropertyInfo prop in propsToLoad)
+                {
+                    // Get the load attribute
+                    RaisersEdge.API.ToolKit.Managed.Mapping.Attributes.QueryMappingAttribute mapAttribute = (RaisersEdge.API.ToolKit.Managed.Mapping.Attributes.QueryMappingAttribute)prop.GetCustomAttributes(baseType, true).FirstOrDefault();
+
+                    // Get the property type
+                    Type propValueType = prop.GetSetMethod().GetParameters().FirstOrDefault().ParameterType;
+
+                    // Index provided
+                    if (mapAttribute.FieldType.Equals(typeof(int)))
+                    {
+                        prop.SetValue(row, this.QuerySet.get_fieldValue(mapAttribute.FieldToMap), null);
+                    }
+                    // Field Name Provided
+                    else if (mapAttribute.FieldType.Equals(typeof(string)))
+                    {
+                        if (queryFields.ContainsKey((string)mapAttribute.FieldToMap))
+                        {
+                            prop.SetValue(row, this.QuerySet.get_fieldValue(queryFields[(string)mapAttribute.FieldToMap].Index), null);
+                        }
+                    }
+                }
+
+                resultSet.Add(row);
+
+                this.QuerySet.MoveNext();
+            }
+
+            return resultSet;
+        }
+
         #region IDisposable Members
 
         public void Dispose()

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:11337/CodeTables.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/RaisersEdge.API.ToolKit.Web.DataContracts" />
+  <xs:element name="GetCodeTables">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeTablesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/RaisersEdge.API.ToolKit.Web.DataContracts" minOccurs="0" name="GetCodeTablesResult" nillable="true" type="q1:ArrayOfBaseCodeTable" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeTableEntriesByTableName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tableName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeTableEntriesByTableNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/RaisersEdge.API.ToolKit.Web.DataContracts" minOccurs="0" name="GetCodeTableEntriesByTableNameResult" nillable="true" type="q2:ArrayOfBaseTableEntry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeTableEntriesByTableID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tableID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeTableEntriesByTableIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/RaisersEdge.API.ToolKit.Web.DataContracts" minOccurs="0" name="GetCodeTableEntriesByTableIDResult" nillable="true" type="q3:ArrayOfBaseTableEntry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCodeTableEntry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/RaisersEdge.API.ToolKit.Web.DataContracts" minOccurs="0" name="entry" nillable="true" type="q4:BaseTableEntry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCodeTableEntryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCodeTableEntryResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCodeTableEntry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/RaisersEdge.API.ToolKit.Web.DataContracts" minOccurs="0" name="entry" nillable="true" type="q5:BaseTableEntry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCodeTableEntryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteCodeTableEntryResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

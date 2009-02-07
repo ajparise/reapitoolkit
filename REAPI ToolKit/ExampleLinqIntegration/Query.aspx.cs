@@ -15,11 +15,7 @@ namespace ExampleLinqIntegration
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (RaisersEdge.API.ToolKit.Managed.Entities.Query.QueryExists(TextBox1.Text))
-            {
-                GridView1.DataBind();
-            }
-
+            GridView1.DataBind();
         }
     }
 }

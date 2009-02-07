@@ -20,9 +20,13 @@ namespace RaisersEdge.API.ToolKit.Managed.Entities
                 sess = SingletonProxy.Instance.ManagedSessionContext;
                 base.Init(ref sess);
             }
-            catch (System.Exception comError)
+            catch (RaisersEdge.API.ToolKit.Managed.Exceptions.ApiInitializationException apiFail)
             {
-                throw new Exception("Failed to initialize new record using singleton proxy.", comError);
+                throw apiFail;
+            }
+            catch (System.Exception unknownEx)
+            {
+                throw new RaisersEdge.API.ToolKit.Managed.Exceptions.REObjectCreationException("New Constituent Record", unknownEx);
             }
         }
 
@@ -33,9 +37,13 @@ namespace RaisersEdge.API.ToolKit.Managed.Entities
                 this.sess = sess;
                 base.Init(ref this.sess);
             }
-            catch (System.Exception comError)
+            catch (RaisersEdge.API.ToolKit.Managed.Exceptions.ApiInitializationException apiFail)
             {
-                throw new Exception("Failed to initialize new record.", comError);
+                throw apiFail;
+            }
+            catch (System.Exception unknownEx)
+            {
+                throw new RaisersEdge.API.ToolKit.Managed.Exceptions.REObjectCreationException("New Constituent Record", unknownEx);
             }
         }
 
@@ -48,9 +56,13 @@ namespace RaisersEdge.API.ToolKit.Managed.Entities
                 base.Init(ref sess);
                 base.Load(sysID, readOnly);
             }
-            catch (System.Exception comError)
+            catch (RaisersEdge.API.ToolKit.Managed.Exceptions.ApiInitializationException apiFail)
             {
-                throw new Exception("Failed to initialize/load record " + sysID.ToString() + " using singleton proxy.", comError);
+                throw apiFail;
+            }
+            catch (System.Exception unknownEx)
+            {
+                throw new RaisersEdge.API.ToolKit.Managed.Exceptions.REObjectNotFoundException(readOnly ? "Read-Only " : "Writable " + "Constituent Record", sysID.ToString(), "sysID", unknownEx);
             }
         }
 
@@ -63,9 +75,13 @@ namespace RaisersEdge.API.ToolKit.Managed.Entities
                 base.Init(ref sess);
                 base.Load(sysID, readOnly);
             }
-            catch (System.Exception comError)
+            catch (RaisersEdge.API.ToolKit.Managed.Exceptions.ApiInitializationException apiFail)
             {
-                throw new Exception("Failed to initialize/load record " + sysID.ToString(), comError);
+                throw apiFail;
+            }
+            catch (System.Exception unknownEx)
+            {
+                throw new RaisersEdge.API.ToolKit.Managed.Exceptions.REObjectNotFoundException(readOnly ? "Read-Only " : "Writable " + "Constituent Record", sysID.ToString(), "sysID", unknownEx);
             }
         }
 
@@ -79,13 +95,13 @@ namespace RaisersEdge.API.ToolKit.Managed.Entities
                 base.LoadByField(field, value);
                 base.ReadOnlyMode = readOnly;
             }
-            catch (System.Exception comError)
+            catch (RaisersEdge.API.ToolKit.Managed.Exceptions.ApiInitializationException apiFail)
             {
-                throw new Exception(
-                    string.Format("Failed to initialize/load record as {0} using unique field \"{1}\" and value \"{2}\" using singleton proxy.",
-                                    readOnly ? "read-only" : "writable",
-                                    Enum.GetName(field.GetType(), field),
-                                    (string)value), comError);
+                throw apiFail;
+            }
+            catch (System.Exception unknownEx)
+            {
+                throw new RaisersEdge.API.ToolKit.Managed.Exceptions.REObjectNotFoundException(readOnly ? "Read-Only " : "Writable " + "Constituent Record", (string)value, Enum.GetName(field.GetType(), field), unknownEx);
             }
         } 
 
@@ -99,13 +115,13 @@ namespace RaisersEdge.API.ToolKit.Managed.Entities
                 base.LoadByField(field, value);
                 base.ReadOnlyMode = readOnly;
             }
-            catch (System.Exception comError)
+            catch (RaisersEdge.API.ToolKit.Managed.Exceptions.ApiInitializationException apiFail)
             {
-                throw new Exception(
-                    string.Format("Failed to initialize/load record as {0} using unique field \"{1}\" and value \"{2}\" using singleton proxy.",
-                                    readOnly ? "read-only" : "writable",
-                                    Enum.GetName(field.GetType(), field),
-                                    (string)value), comError);
+                throw apiFail;
+            }
+            catch (System.Exception unknownEx)
+            {
+                throw new RaisersEdge.API.ToolKit.Managed.Exceptions.REObjectNotFoundException(readOnly ? "Read-Only " : "Writable " + "Constituent Record", (string)value, Enum.GetName(field.GetType(), field), unknownEx);
             }
         } 
 
@@ -155,7 +171,7 @@ namespace RaisersEdge.API.ToolKit.Managed.Entities
         public void Dispose()
         {
             base.CloseDown();
-            //ProxyCleanUp.ReleaseComObject((Blackbaud.PIA.RE7.BBREAPI.CRecordClass)this);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject((Blackbaud.PIA.RE7.BBREAPI.CRecordClass)this);
         }
 
         #endregion
