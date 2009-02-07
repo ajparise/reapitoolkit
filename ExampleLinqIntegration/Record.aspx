@@ -30,9 +30,9 @@
                 <asp:BoundField DataField="MartialStatus" HeaderText="MartialStatus" 
                     SortExpression="MartialStatus" />
                 <asp:BoundField DataField="DateLastChanged" HeaderText="DateLastChanged" 
-                    SortExpression="DateLastChanged" ReadOnly="true" />
+                    SortExpression="DateLastChanged" />
                 <asp:BoundField DataField="LastChangedBy" HeaderText="LastChangedBy" 
-                    SortExpression="LastChangedBy" ReadOnly="true"/>
+                    SortExpression="LastChangedBy"/>
                 <asp:CommandField ShowEditButton="True" />
             </Fields>
             <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -40,8 +40,8 @@
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         </asp:DetailsView>
         <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
-            DataObjectTypeName="DataContracts.Record" SelectMethod="GetConstituent" 
-            TypeName="ExampleLinqIntegration.ReAPI_WCFsvc" 
+            DataObjectTypeName="RaisersEdge.API.ToolKit.Web.DataContracts.BaseRecord" SelectMethod="GetConstituent" 
+            TypeName="ExampleLinqIntegration.RecordService.RecordServiceClient" 
             UpdateMethod="UpdateConstituent">
             <SelectParameters>
                 <asp:ControlParameter ControlID="TextBox1" Name="constituentID" 

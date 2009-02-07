@@ -26,7 +26,8 @@
             <AlternatingRowStyle BackColor="White" />
         </asp:GridView>
         <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
-            SelectMethod="GetQueryResult" TypeName="ExampleLinqIntegration.ReAPI_WCFsvc">
+            SelectMethod="GetQueryResult" 
+            TypeName="ExampleLinqIntegration.QueryService.QueryServiceClient">
             <SelectParameters>
                 <asp:ControlParameter ControlID="TextBox1" Name="queryName" PropertyName="Text" 
                     Type="String" />

@@ -1,0 +1,3 @@
+﻿<%@ ServiceHost Service="RaisersEdge.API.ToolKit.Web.Services.RecordService" %>
+<%@ Assembly Name="RaisersEdge.API.ToolKit.Web" %>
+ 

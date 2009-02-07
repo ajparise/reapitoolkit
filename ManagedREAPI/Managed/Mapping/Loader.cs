@@ -26,6 +26,7 @@ namespace RaisersEdge.API.ToolKit.Managed.Mapping
                 // Get the load attribute
                 RaisersEdge.API.ToolKit.Managed.Mapping.Attributes.BaseMapAttribute mapAttribute = (RaisersEdge.API.ToolKit.Managed.Mapping.Attributes.BaseMapAttribute)prop.GetCustomAttributes(baseType, true).FirstOrDefault();
 
+                var testProps = apiObject.GetType().GetMethods();
                 // Get the get_Fields property that uses the specified enumeration type
                 var apiGetFieldProp = apiObject.GetType().GetMethods().
                     Where(isGetFieldsProp).Where(m => m.GetParameters().Where(p => p.ParameterType.Equals(mapAttribute.FieldType)).Count() == 1).FirstOrDefault();
@@ -38,11 +39,19 @@ namespace RaisersEdge.API.ToolKit.Managed.Mapping
 
                     object fieldValue = apiGetFieldProp.Invoke(apiObject, new object[] { fieldToLoad });
 
-                    // Get defined type on data object
-                    Type propValueType = prop.GetSetMethod().GetParameters().FirstOrDefault().ParameterType;
+                    if (mapAttribute.IsREBoolean)
+                    {
+                        bool reBoolValue = fieldValue.ToString().Equals("-1");
+                        prop.SetValue(dataObject, reBoolValue, null);
+                    }
+                    else
+                    {
+                        // Get defined type on data object
+                        Type propValueType = prop.GetSetMethod().GetParameters().FirstOrDefault().ParameterType;
 
-                    // Set the field value to the data object
-                    prop.SetValue(dataObject, Convert.ChangeType(fieldValue, propValueType), null);
+                        // Set the field value to the data object
+                        prop.SetValue(dataObject, Convert.ChangeType(fieldValue, propValueType), null);
+                    }
                 }
             }
 
@@ -70,14 +79,23 @@ namespace RaisersEdge.API.ToolKit.Managed.Mapping
                     // Get the field value from the api object
                     if (apiSetFieldProp != null)
                     {
+
                         // Get the field value from the data object
                         object fieldValue = prop.GetValue(dataObject, null);
 
                         object currentFieldValue = apiGetFieldProp.Invoke(apiObject, new object[] { mapAttribute.FieldToMap });
 
-                        if (!currentFieldValue.Equals(fieldValue))
+                        if (mapAttribute.IsREBoolean)
                         {
+                            string reBoolValue = (bool)fieldValue ? "-1" : "0";
                             apiSetFieldProp.Invoke(apiObject, new object[] { mapAttribute.FieldToMap, fieldValue });
+                        }
+                        else
+                        {
+                            if (currentFieldValue == null || !currentFieldValue.Equals(fieldValue))
+                            {
+                                apiSetFieldProp.Invoke(apiObject, new object[] { mapAttribute.FieldToMap, fieldValue });
+                            }
                         }
                     }
                 }

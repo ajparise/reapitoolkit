@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RaisersEdge.API.ToolKit.Web.DataContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RaisersEdge.API.ToolKit.Web.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="BaseRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConstituentID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateLastChanged" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="LastChangedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MartialStatus" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseRecord" nillable="true" type="tns:BaseRecord" />
+</xs:schema>
