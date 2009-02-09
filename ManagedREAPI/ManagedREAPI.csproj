@@ -17,7 +17,7 @@
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>RaisersEdge.API.ToolKit.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>REAPIToolkit.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -65,7 +65,7 @@
     <Compile Include="Managed\Entities\CodeTable.cs" />
     <Compile Include="Managed\Entities\CodeTables.cs" />
     <Compile Include="Managed\Entities\Extensions\GetFields.cs" />
-    <Compile Include="Managed\Entities\Extensions\TableEntryMapping.cs" />
+    <Compile Include="Managed\Entities\Extensions\Mapping.cs" />
     <Compile Include="Managed\Entities\TableEntry.cs" />
     <Compile Include="Managed\Exceptions\BaseExeptions.cs" />
     <Compile Include="Managed\Mapping\DataContracts\BaseAttribute.cs" />
@@ -87,7 +87,7 @@
     <Content Include="reapi resources\Blackbaud.PIA.RE7.RELibB.dll" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="RaisersEdge.API.ToolKit.pfx" />
+    <None Include="REAPIToolkit.snk" />
     <None Include="ToolKitDiagram.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
