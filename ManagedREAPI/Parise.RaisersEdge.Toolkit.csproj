@@ -8,8 +8,8 @@
     <ProjectGuid>{B09358A9-2B1A-41D5-877B-678F32C296D9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RaisersEdge.API.ToolKit</RootNamespace>
-    <AssemblyName>RaisersEdge.API.ToolKit</AssemblyName>
+    <RootNamespace>Parise.RaisersEdge</RootNamespace>
+    <AssemblyName>Parise.RaisersEdge.Toolkit</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
@@ -40,9 +40,18 @@
     <Reference Include="Blackbaud.PIA.RE7.BBREAPI, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Blackbaud.PIA.RE7.REAPI, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL" />
-    <Reference Include="Blackbaud.PIA.RE7.RELibA, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL" />
-    <Reference Include="Blackbaud.PIA.RE7.RELibB, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL" />
+    <Reference Include="Blackbaud.PIA.RE7.CFAData, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Blackbaud.PIA.RE7.REAPI, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Blackbaud.PIA.RE7.RELibA, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Blackbaud.PIA.RE7.RELibB, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core">
@@ -61,34 +70,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Managed\Configuration\Config.cs" />
-    <Compile Include="Managed\Entities\CodeTable.cs" />
-    <Compile Include="Managed\Entities\CodeTables.cs" />
-    <Compile Include="Managed\Entities\Extensions\GetFields.cs" />
-    <Compile Include="Managed\Entities\Extensions\Mapping.cs" />
-    <Compile Include="Managed\Entities\TableEntry.cs" />
-    <Compile Include="Managed\Exceptions\BaseExeptions.cs" />
-    <Compile Include="Managed\Mapping\DataContracts\BaseAttribute.cs" />
-    <Compile Include="Managed\Mapping\DataContracts\BaseTableEntry.cs" />
-    <Compile Include="Managed\Mapping\Loader.cs" />
-    <Compile Include="Managed\Mapping\Attributes.cs" />
-    <Compile Include="Managed\Mapping\IMapping.cs" />
-    <Compile Include="Managed\BaseProxy.cs" />
-    <Compile Include="Managed\Entities\Record.cs" />
-    <Compile Include="Managed\Singleton.cs" />
-    <Compile Include="Managed\SingletonProxy.cs" />
+    <Compile Include="Toolkit.Configuration\Config.cs" />
+    <Compile Include="Toolkit.Entities\Managed\APIListener.cs" />
+    <Compile Include="Toolkit.Entities\Managed\CodeTable.cs" />
+    <Compile Include="Toolkit.Entities\Managed\CodeTables.cs" />
+    <Compile Include="Toolkit.Entities\Managed\Extensions\Fields.cs" />
+    <Compile Include="Toolkit.Entities\Managed\Extensions\Mapping.cs" />
+    <Compile Include="Toolkit.Entities\Managed\Extensions\Record.cs" />
+    <Compile Include="Toolkit.Entities\Managed\Funds.cs" />
+    <Compile Include="Toolkit.Entities\Managed\Records.cs" />
+    <Compile Include="Toolkit.Entities\Managed\Services.cs" />
+    <Compile Include="Toolkit.Entities\Managed\TableEntry.cs" />
+    <Compile Include="Toolkit.Entities\Managed\Exceptions\BaseExeptions.cs" />
+    <Compile Include="Toolkit.Mapping\DataContracts\BaseAttribute.cs" />
+    <Compile Include="Toolkit.Mapping\DataContracts\BaseTableEntry.cs" />
+    <Compile Include="Toolkit.Mapping\Loader.cs" />
+    <Compile Include="Toolkit.Mapping\Attributes\Attributes.cs" />
+    <Compile Include="Toolkit.Mapping\IMapping.cs" />
+    <Compile Include="Toolkit.Entities\Managed\RaisersEdgeAPI.cs" />
+    <Compile Include="Toolkit.Entities\Managed\Record.cs" />
+    <Compile Include="Toolkit.Entities\Managed\Singleton\Singleton.cs" />
+    <Compile Include="Toolkit.Entities\Managed\Singleton\RaisersEdgeAPI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Managed\Entities\Query.cs" />
+    <Compile Include="Toolkit.Entities\Managed\Query.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="reapi resources\Blackbaud.PIA.RE7.BBREAPI.dll" />
-    <Content Include="reapi resources\Blackbaud.PIA.RE7.REAPI.dll" />
-    <Content Include="reapi resources\Blackbaud.PIA.RE7.RELibA.dll" />
-    <Content Include="reapi resources\Blackbaud.PIA.RE7.RELibB.dll" />
+    <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.BBREAPI.dll" />
+    <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.CFAData.dll" />
+    <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.REAPI.dll" />
+    <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.RELibA.dll" />
+    <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.RELibB.dll" />
   </ItemGroup>
   <ItemGroup>
     <None Include="REAPIToolkit.snk" />
-    <None Include="ToolKitDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Toolkit.Entities\UnManaged\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

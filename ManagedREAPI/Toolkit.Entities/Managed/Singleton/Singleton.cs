@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace RaisersEdge.API.ToolKit.Managed
+namespace RaisersEdge.API.Toolkit.Managed.Singleton
 {
     public static class Singleton<T> where T : new()
     {
@@ -23,6 +23,7 @@ namespace RaisersEdge.API.ToolKit.Managed
 
         private class SingletonInternal
         {
+            private SingletonInternal() { }
             // Explicit static constructor to tell C# compiler
             // not to mark type as beforefieldinit.
             static SingletonInternal()
