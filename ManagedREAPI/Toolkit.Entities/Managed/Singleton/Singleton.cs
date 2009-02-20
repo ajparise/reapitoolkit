@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace RaisersEdge.API.Toolkit.Managed.Singleton
+namespace Parise.RaisersEdge.Toolkit.Managed.Singleton
 {
     public static class Singleton<T> where T : new()
     {

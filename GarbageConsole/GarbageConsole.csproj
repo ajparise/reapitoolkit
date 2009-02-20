@@ -53,15 +53,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MappedQuery.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Record.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ManagedREAPI\ManagedREAPI.csproj">
+    <ProjectReference Include="..\ManagedREAPI\Parise.RaisersEdge.Toolkit.csproj">
       <Project>{B09358A9-2B1A-41D5-877B-678F32C296D9}</Project>
-      <Name>ManagedREAPI</Name>
+      <Name>Parise.RaisersEdge.Toolkit</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
