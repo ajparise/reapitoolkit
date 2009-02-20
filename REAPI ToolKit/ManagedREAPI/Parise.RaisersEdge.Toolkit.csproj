@@ -74,7 +74,9 @@
     <Compile Include="Toolkit.Entities\Managed\APIListener.cs" />
     <Compile Include="Toolkit.Entities\Managed\CodeTable.cs" />
     <Compile Include="Toolkit.Entities\Managed\CodeTables.cs" />
-    <Compile Include="Toolkit.Entities\Managed\Extensions\Fields.cs" />
+    <Compile Include="Toolkit.Entities\Managed\Extensions\Fields.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Toolkit.Entities\Managed\Extensions\Mapping.cs" />
     <Compile Include="Toolkit.Entities\Managed\Extensions\Record.cs" />
     <Compile Include="Toolkit.Entities\Managed\Funds.cs" />

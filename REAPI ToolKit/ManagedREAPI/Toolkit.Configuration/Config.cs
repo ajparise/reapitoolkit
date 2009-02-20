@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Configuration;
 
-namespace RaisersEdge.API.Toolkit.Managed.Configuration
+namespace Parise.RaisersEdge.Toolkit.Configuration
 {
    public class ReApiToolkitSection : ConfigurationSection
     {
