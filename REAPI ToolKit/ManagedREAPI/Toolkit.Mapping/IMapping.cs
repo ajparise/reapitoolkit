@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace RaisersEdge.API.ToolKit.Managed.Mapping
+namespace Parise.RaisersEdge.Toolkit.Mapping
 {
     public interface IMapping
     {

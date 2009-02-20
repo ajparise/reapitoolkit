@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace RaisersEdge.API.ToolKit.Managed
+namespace Parise.RaisersEdge.Toolkit.Entities.Managed.Singleton
 {
-    public static class SingletonProxy
+    /// <summary>
+    /// Static Singleton Implementation of Raisers Edge API
+    /// Ensure at most ONE instance of Parise.RaisersEdge.Toolkit.Entities.Managed.RaisersEdgeAPI exists.
+    /// </summary>
+    public static class RaisersEdgeAPI
     {        
         #region Constants
         public readonly static string RESampleSerial = "WRE11111";
@@ -14,38 +18,41 @@ namespace RaisersEdge.API.ToolKit.Managed
         public readonly static int RESampleDatabaseNumber = 50;
 
         private static bool _useSampleDatabase = true;
+        /// <summary>
+        /// Specifies whether to connect using the sample database credentials or custom credentials
+        /// </summary>
         public static bool UseSampleDatabase
         {
-            get { return SingletonProxy._useSampleDatabase; }
-            set { SingletonProxy._useSampleDatabase = value; }
+            get { return RaisersEdgeAPI._useSampleDatabase; }
+            set { RaisersEdgeAPI._useSampleDatabase = value; }
         }
 
         private static string _RESerial = "";
         public static string RESerial
         {
-            get { return SingletonProxy._RESerial; }
-            set { SingletonProxy._RESerial = value; }
+            get { return RaisersEdgeAPI._RESerial; }
+            set { RaisersEdgeAPI._RESerial = value; }
         }
 
         private static string _REAccountName = "";
         public static string REAccountName
         {
-            get { return SingletonProxy._REAccountName; }
-            set { SingletonProxy._REAccountName = value; }
+            get { return RaisersEdgeAPI._REAccountName; }
+            set { RaisersEdgeAPI._REAccountName = value; }
         }
 
         private static string _REAccountPassword = "";
         public static string REAccountPassword
         {
-            get { return SingletonProxy._REAccountPassword; }
-            set { SingletonProxy._REAccountPassword = value; }
+            get { return RaisersEdgeAPI._REAccountPassword; }
+            set { RaisersEdgeAPI._REAccountPassword = value; }
         }
 
         private static int _REDatabaseNumber = 1;
         public static int REDatabaseNumber
         {
-            get { return SingletonProxy._REDatabaseNumber; }
-            set { SingletonProxy._REDatabaseNumber = value; }
+            get { return RaisersEdgeAPI._REDatabaseNumber; }
+            set { RaisersEdgeAPI._REDatabaseNumber = value; }
         }
 
         #endregion
@@ -53,7 +60,7 @@ namespace RaisersEdge.API.ToolKit.Managed
         /// <summary>
         /// Gets the singleton instance.
         /// </summary>
-        public static BaseProxy Instance
+        public static Parise.RaisersEdge.Toolkit.Entities.Managed.RaisersEdgeAPI Instance
         {
             get
             {
@@ -72,11 +79,11 @@ namespace RaisersEdge.API.ToolKit.Managed
             {
             }
 
-            internal static readonly BaseProxy instance =
-                    SingletonProxy.UseSampleDatabase ?
-                        new BaseProxy(RESampleSerial, RESampleAccountName, RESampleAccountPassword, RESampleDatabaseNumber, Blackbaud.PIA.RE7.BBREAPI.AppMode.amServer)
+            internal static readonly Parise.RaisersEdge.Toolkit.Entities.Managed.RaisersEdgeAPI instance =
+                    RaisersEdgeAPI.UseSampleDatabase ?
+                        new Parise.RaisersEdge.Toolkit.Entities.Managed.RaisersEdgeAPI(RESampleSerial, RESampleAccountName, RESampleAccountPassword, RESampleDatabaseNumber, Blackbaud.PIA.RE7.BBREAPI.AppMode.amServer)
                         :
-                        new BaseProxy(_RESerial, _REAccountName, _REAccountPassword, _REDatabaseNumber, Blackbaud.PIA.RE7.BBREAPI.AppMode.amServer);
+                        new Parise.RaisersEdge.Toolkit.Entities.Managed.RaisersEdgeAPI(_RESerial, _REAccountName, _REAccountPassword, _REDatabaseNumber, Blackbaud.PIA.RE7.BBREAPI.AppMode.amServer);
         }
     }
 }

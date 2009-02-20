@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Collections.ObjectModel;
 
-namespace RaisersEdge.API.ToolKit.Managed.Entities
+namespace Parise.RaisersEdge.Toolkit.Entities.Managed
 {
-    public class CodeTableEntries : Blackbaud.PIA.RE7.BBREAPI.CTableEntriesClass, IDisposable, RaisersEdge.API.ToolKit.Managed.Mapping.IMappingList
+    /// <summary>
+    /// Managed code table entries class
+    /// Needs to be re-factored
+    /// </summary>
+    public sealed class CodeTableEntries : Blackbaud.PIA.RE7.BBREAPI.CTableEntriesClass, IDisposable, Parise.RaisersEdge.Toolkit.Mapping.IMappingList
     {
         private Blackbaud.PIA.RE7.BBREAPI.IBBSessionContext sess;
 
@@ -28,13 +32,13 @@ namespace RaisersEdge.API.ToolKit.Managed.Entities
                     _entries.Add(entry.GetFieldValueAs<string>(Blackbaud.PIA.RE7.BBREAPI.ETableEntryFields.tableentry_fld_TABLEENTRIESID), entry);
                 }
             }
-            catch (RaisersEdge.API.ToolKit.Managed.Exceptions.ApiInitializationException apiFail)
+            catch (Exceptions.ApiInitializationException)
             {
-                throw apiFail;
+                throw;
             }
             catch (System.Exception unknownEx)
             {
-                throw new RaisersEdge.API.ToolKit.Managed.Exceptions.REObjectNotFoundException("Code Table", tableID.ToString(), "TableID", unknownEx);
+                throw new Exceptions.REObjectNotFoundException("Code Table", tableID.ToString(), "TableID", unknownEx);
             }
         }
 
@@ -43,7 +47,7 @@ namespace RaisersEdge.API.ToolKit.Managed.Entities
         {
             try
             {
-                this.sess = SingletonProxy.Instance.ManagedSessionContext;
+                this.sess = Singleton.RaisersEdgeAPI.Instance.ManagedSessionContext;
                 this.tableID = tableID;
                 base.Init(ref sess, this.tableID);
 
@@ -52,13 +56,13 @@ namespace RaisersEdge.API.ToolKit.Managed.Entities
                     _entries.Add(entry.GetFieldValueAs<string>(Blackbaud.PIA.RE7.BBREAPI.ETableEntryFields.tableentry_fld_TABLEENTRIESID), entry);
                 }
             }
-            catch (RaisersEdge.API.ToolKit.Managed.Exceptions.ApiInitializationException apiFail)
+            catch (Exceptions.ApiInitializationException)
             {
-                throw apiFail;
+                throw;
             }
             catch (System.Exception unknownEx)
             {
-                throw new RaisersEdge.API.ToolKit.Managed.Exceptions.REObjectNotFoundException("Code Table", tableID.ToString(), "TableID", unknownEx);
+                throw new Exceptions.REObjectNotFoundException("Code Table", tableID.ToString(), "TableID", unknownEx);
             }
         }
 

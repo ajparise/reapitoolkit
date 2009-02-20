@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Collections.ObjectModel;
 
-namespace RaisersEdge.API.ToolKit.Managed.Entities
+namespace Parise.RaisersEdge.Toolkit.Entities.Managed
 {
-    public class CodeTables : Blackbaud.PIA.RE7.BBREAPI.CCodeTablesClass, IDisposable, RaisersEdge.API.ToolKit.Managed.Mapping.IMappingList
+    /// <summary>
+    /// Managed code tables class
+    /// Needs to be refactored
+    /// </summary>
+    public sealed class CodeTables : Blackbaud.PIA.RE7.BBREAPI.CCodeTablesClass, IDisposable, Parise.RaisersEdge.Toolkit.Mapping.IMappingList
     {
         private Dictionary<string, CodeTableEntries> _tableEntriesDict = new Dictionary<string, CodeTableEntries>();
 
@@ -17,20 +21,20 @@ namespace RaisersEdge.API.ToolKit.Managed.Entities
         {
             try
             {
-                sess = SingletonProxy.Instance.ManagedSessionContext;
+                sess = Singleton.RaisersEdgeAPI.Instance.ManagedSessionContext;
                 base.Init(ref sess);
                 foreach (Blackbaud.PIA.RE7.BBREAPI.CCodeTable codeTable in this)
                 {
                     _codetables.Add(codeTable.GetFieldValueAs<string>(Blackbaud.PIA.RE7.BBREAPI.ECodeTableFields.ctfNAME), codeTable);
                 }
             }
-            catch (RaisersEdge.API.ToolKit.Managed.Exceptions.ApiInitializationException apiFail)
+            catch (Exceptions.ApiInitializationException apiFail)
             {
                 throw apiFail;
             }
             catch (System.Exception unknownEx)
             {
-                throw new RaisersEdge.API.ToolKit.Managed.Exceptions.ApiUnknownException(unknownEx);
+                throw new Exceptions.ApiUnknownException(unknownEx);
             }
         }
 
