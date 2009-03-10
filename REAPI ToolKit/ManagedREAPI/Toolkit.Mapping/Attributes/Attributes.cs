@@ -293,4 +293,80 @@ namespace Parise.RaisersEdge.Toolkit.Mapping.Attributes
         }
     }
 
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+    public sealed class AppealMappingAttribute : BaseMapAttribute
+    {
+        public AppealMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EAPPEALFields fieldToMap)
+            : base(fieldToMap, false)
+        {
+        }
+
+        public AppealMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EAPPEALFields fieldToMap, bool readOnly)
+            : base(fieldToMap, readOnly)
+        {
+        }
+
+        public AppealMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EAPPEALFields fieldToMap, bool readOnly, bool convertREBoolean)
+            : base(fieldToMap, readOnly, convertREBoolean)
+        {
+        }
+    }
+
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+    public sealed class SoftCreditMappingAttribute : BaseMapAttribute
+    {
+        public SoftCreditMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EGiftSoftCreditFields fieldToMap)
+            : base(fieldToMap, false)
+        {
+        }
+
+        public SoftCreditMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EGiftSoftCreditFields fieldToMap, bool readOnly)
+            : base(fieldToMap, readOnly)
+        {
+        }
+
+        public SoftCreditMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EGiftSoftCreditFields fieldToMap, bool readOnly, bool convertREBoolean)
+            : base(fieldToMap, readOnly, convertREBoolean)
+        {
+        }
+    }
+
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+    public sealed class TributeMappingAttribute : BaseMapAttribute
+    {
+        public TributeMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EGiftTributeFields fieldToMap)
+            : base(fieldToMap, false)
+        {
+        }
+
+        public TributeMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EGiftTributeFields fieldToMap, bool readOnly)
+            : base(fieldToMap, readOnly)
+        {
+        }
+
+        public TributeMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EGiftTributeFields fieldToMap, bool readOnly, bool convertREBoolean)
+            : base(fieldToMap, readOnly, convertREBoolean)
+        {
+        }
+    }
+
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+    public sealed class TributeAcknowledgeeMappingAttribute : BaseMapAttribute
+    {
+        public TributeAcknowledgeeMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EGiftTributeAcknowledgeeFields  fieldToMap)
+            : base(fieldToMap, false)
+        {
+        }
+
+        public TributeAcknowledgeeMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EGiftTributeAcknowledgeeFields fieldToMap, bool readOnly)
+            : base(fieldToMap, readOnly)
+        {
+        }
+
+        public TributeAcknowledgeeMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EGiftTributeAcknowledgeeFields fieldToMap, bool readOnly, bool convertREBoolean)
+            : base(fieldToMap, readOnly, convertREBoolean)
+        {
+        }
+    }
+
 }
