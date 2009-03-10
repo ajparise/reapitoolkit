@@ -19,7 +19,7 @@ namespace Parise.RaisersEdge.Toolkit.Mapping
 
         public T CopyInto<T, K>(T dataObject, K apiObject)
         {
-            IEnumerable<System.Reflection.PropertyInfo> propsToLoad = dataObject.GetType().GetProperties().Where(p => p.IsDefined(baseType, true) && p.GetSetMethod().IsPublic);
+            IEnumerable<System.Reflection.PropertyInfo> propsToLoad = dataObject.GetType().GetProperties().Where(p => p.IsDefined(baseType, true) && p.CanWrite);
 
             foreach (System.Reflection.PropertyInfo prop in propsToLoad)
             {
@@ -70,26 +70,30 @@ namespace Parise.RaisersEdge.Toolkit.Mapping
 
         public T UpdateFrom<T, K>(T dataObject, K apiObject)
         {
-            IEnumerable<System.Reflection.PropertyInfo> propsToSave = dataObject.GetType().GetProperties().Where(p => p.IsDefined(baseType, true) && p.GetSetMethod().IsPublic);
+            IEnumerable<System.Reflection.PropertyInfo> propsToSave = dataObject.GetType().GetProperties().Where(p => p.CanRead && p.IsDefined(baseType, true));
 
             foreach (System.Reflection.PropertyInfo prop in propsToSave)
             {
                 foreach (Attributes.BaseMapAttribute mapAttribute in prop.GetCustomAttributes(baseType, true))
                 {
+                    var testProps = typeof(K).GetMethods();
 
                     if (!mapAttribute.IsReadOnly)
                     {
-                        var apiGetFieldProp = typeof(K).GetType().GetMethods().
-                            Where(isGetFieldsProp).Where(m => m.GetParameters().Where(p => p.ParameterType.Equals(mapAttribute.FieldType)).Count() == 1).FirstOrDefault();
+                        // Get the get_Fields property that uses the specified enumeration type
+                        //var apiGetFieldProp = typeof(K).GetMethods().
+                        //    Where(isGetFieldsProp).Where(m => m.GetParameters().Where(p => p.ParameterType.Equals(mapAttribute.FieldType)).Count() == 1).FirstOrDefault();
 
-                        if (apiGetFieldProp == null)
-                        {
-                            apiGetFieldProp = apiObject.GetType().GetMethods().
-                                                   Where(isGetFieldsProp).Where(m => m.GetParameters().Where(p => p.ParameterType.Equals(mapAttribute.FieldType)).Count() == 1).FirstOrDefault();
-                        }
+                        //// Get the field value from the api object
+                        //if (apiGetFieldProp == null)
+                        //{
+                        //    apiGetFieldProp = apiObject.GetType().GetMethods().
+                        //                           Where(isGetFieldsProp).Where(m => m.GetParameters().Where(p => p.ParameterType.Equals(mapAttribute.FieldType)).Count() == 1).FirstOrDefault();
+                        //}
+
 
                         // Get the set_Fields property that uses the specified enumeration type
-                        var apiSetFieldProp = typeof(K).GetType().GetMethods().
+                        var apiSetFieldProp = typeof(K).GetMethods().
                             Where(isSetFieldsProp).Where(m => m.GetParameters().Where(p => p.ParameterType.Equals(mapAttribute.FieldType)).Count() == 1).FirstOrDefault();
 
 
@@ -106,7 +110,7 @@ namespace Parise.RaisersEdge.Toolkit.Mapping
                             // Get the field value from the data object
                             object fieldValue = prop.GetValue(dataObject, null);
 
-                            object currentFieldValue = apiGetFieldProp.Invoke(apiObject, new object[] { mapAttribute.FieldToMap });
+                            //object currentFieldValue = apiGetFieldProp.Invoke(apiObject, new object[] { mapAttribute.FieldToMap });
 
                             if (mapAttribute.IsREBoolean)
                             {

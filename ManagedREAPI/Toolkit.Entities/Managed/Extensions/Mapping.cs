@@ -137,5 +137,20 @@ namespace Parise.RaisersEdge.Toolkit.Entities.Managed
         {
             return new Loader().UpdateFrom<T, Blackbaud.PIA.RE7.BBREAPI._CConstitAddressPhone>(dataObject, entry);
         }
+
+        public static T CopyInto<T>(this Blackbaud.PIA.RE7.BBREAPI._CGift entry) where T : new()
+        {
+            return new Loader().CopyInto<T, Blackbaud.PIA.RE7.BBREAPI._CGift>(entry);
+        }
+
+        public static T CopyInto<T>(this Blackbaud.PIA.RE7.BBREAPI._CGift entry, T dataObject)
+        {
+            return new Loader().CopyInto<T, Blackbaud.PIA.RE7.BBREAPI._CGift>(dataObject, entry);
+        }
+
+        public static T UpdateFrom<T>(this Blackbaud.PIA.RE7.BBREAPI._CGift entry, T dataObject)
+        {
+            return new Loader().UpdateFrom<T, Blackbaud.PIA.RE7.BBREAPI._CGift>(dataObject, entry);
+        }
     }
 }

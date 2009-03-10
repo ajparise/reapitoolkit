@@ -37,12 +37,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Blackbaud.PIA.RE7.BatchData, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL" />
+    <Reference Include="Blackbaud.PIA.RE7.BBInterfaces, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL" />
     <Reference Include="Blackbaud.PIA.RE7.BBREAPI, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
     <Reference Include="Blackbaud.PIA.RE7.CFAData, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="Blackbaud.PIA.RE7.GiftData, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL" />
+    <Reference Include="Blackbaud.PIA.RE7.IObjectSafety, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL" />
     <Reference Include="Blackbaud.PIA.RE7.REAPI, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
@@ -72,15 +76,20 @@
   <ItemGroup>
     <Compile Include="Toolkit.Configuration\Config.cs" />
     <Compile Include="Toolkit.Entities\Managed\APIListener.cs" />
+    <Compile Include="Toolkit.Entities\Managed\Appeals.cs" />
+    <Compile Include="Toolkit.Entities\Managed\Batch.cs" />
     <Compile Include="Toolkit.Entities\Managed\CodeTable.cs" />
     <Compile Include="Toolkit.Entities\Managed\CodeTables.cs" />
+    <Compile Include="Toolkit.Entities\Managed\Extensions\Batch.cs" />
     <Compile Include="Toolkit.Entities\Managed\Extensions\Fields.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Toolkit.Entities\Managed\Extensions\Mapping.cs" />
     <Compile Include="Toolkit.Entities\Managed\Extensions\Record.cs" />
     <Compile Include="Toolkit.Entities\Managed\Funds.cs" />
+    <Compile Include="Toolkit.Entities\Managed\ManagedSave.cs" />
     <Compile Include="Toolkit.Entities\Managed\Records.cs" />
+    <Compile Include="Toolkit.Entities\Managed\REToolkitObject.cs" />
     <Compile Include="Toolkit.Entities\Managed\Services.cs" />
     <Compile Include="Toolkit.Entities\Managed\TableEntry.cs" />
     <Compile Include="Toolkit.Entities\Managed\Exceptions\BaseExeptions.cs" />
@@ -97,8 +106,14 @@
     <Compile Include="Toolkit.Entities\Managed\Query.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.BatchData.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.BBInterfaces.dll" />
     <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.BBREAPI.dll" />
     <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.CFAData.dll" />
+    <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.GiftData.dll" />
+    <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.IObjectSafety.dll" />
     <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.REAPI.dll" />
     <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.RELibA.dll" />
     <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.RELibB.dll" />
