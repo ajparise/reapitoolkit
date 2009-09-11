@@ -243,13 +243,9 @@ namespace Parise.RaisersEdge.Toolkit.Entities.Managed
                 query.CloseDown();
                 return true;
             }
-            catch (Exceptions.REObjectNotFoundException)
-            {
-                return false;
-            }
             catch
             {
-                throw;
+                return false;
             }
         }
 

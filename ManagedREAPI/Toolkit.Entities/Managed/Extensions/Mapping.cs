@@ -152,5 +152,72 @@ namespace Parise.RaisersEdge.Toolkit.Entities.Managed
         {
             return new Loader().UpdateFrom<T, Blackbaud.PIA.RE7.BBREAPI._CGift>(dataObject, entry);
         }
+
+        public static T CopyInto<T>(this Blackbaud.PIA.RE7.BBREAPI._CConstituentCode entry) where T : new()
+        {
+            return new Loader().CopyInto<T, Blackbaud.PIA.RE7.BBREAPI._CConstituentCode>(entry);
+        }
+
+        public static T CopyInto<T>(this Blackbaud.PIA.RE7.BBREAPI._CConstituentCode entry, T dataObject)
+        {
+            return new Loader().CopyInto<T, Blackbaud.PIA.RE7.BBREAPI._CConstituentCode>(dataObject, entry);
+        }
+
+        public static T UpdateFrom<T>(this Blackbaud.PIA.RE7.BBREAPI._CConstituentCode entry, T dataObject)
+        {
+            return new Loader().UpdateFrom<T, Blackbaud.PIA.RE7.BBREAPI._CConstituentCode>(dataObject, entry);
+        }
+
+
+        public static T CopyInto<T>(this Blackbaud.PIA.RE7.BBREAPI._CGiftSoftCredit entry) where T : new()
+        {
+            return new Loader().CopyInto<T, Blackbaud.PIA.RE7.BBREAPI._CGiftSoftCredit>(entry);
+        }
+
+        public static T CopyInto<T>(this Blackbaud.PIA.RE7.BBREAPI._CGiftSoftCredit entry, T dataObject)
+        {
+            return new Loader().CopyInto<T, Blackbaud.PIA.RE7.BBREAPI._CGiftSoftCredit>(dataObject, entry);
+        }
+
+        public static T UpdateFrom<T>(this Blackbaud.PIA.RE7.BBREAPI._CGiftSoftCredit entry, T dataObject)
+        {
+            return new Loader().UpdateFrom<T, Blackbaud.PIA.RE7.BBREAPI._CGiftSoftCredit>(dataObject, entry);
+        }
+
+        public static T CopyInto<T>(this Blackbaud.PIA.RE7.BBREAPI.IBBRecordSolicitor entry) where T : new()
+        {
+            return new Loader().CopyInto<T, Blackbaud.PIA.RE7.BBREAPI.IBBRecordSolicitor>(entry);
+        }
+
+        public static T CopyInto<T>(this Blackbaud.PIA.RE7.BBREAPI.IBBRecordSolicitor entry, T dataObject)
+        {
+            return new Loader().CopyInto<T, Blackbaud.PIA.RE7.BBREAPI.IBBRecordSolicitor>(dataObject, entry);
+        }
+
+        public static T UpdateFrom<T>(this Blackbaud.PIA.RE7.BBREAPI.IBBRecordSolicitor entry, T dataObject)
+        {
+            return new Loader().UpdateFrom<T, Blackbaud.PIA.RE7.BBREAPI.IBBRecordSolicitor>(dataObject, entry);
+        }
+
+
+        public static IEnumerable<T> CopyInto<T>(this IEnumerable<Blackbaud.PIA.RE7.BBREAPI._CProposal> entry) where T : new()
+        {
+            return entry.Select(n => n.CopyInto<T>());
+        }
+
+        public static T CopyInto<T>(this Blackbaud.PIA.RE7.BBREAPI._CProposal entry) where T : new()
+        {
+            return new Loader().CopyInto<T, Blackbaud.PIA.RE7.BBREAPI._CProposal>(entry);
+        }
+
+        public static T CopyInto<T>(this Blackbaud.PIA.RE7.BBREAPI._CProposal entry, T dataObject)
+        {
+            return new Loader().CopyInto<T, Blackbaud.PIA.RE7.BBREAPI._CProposal>(dataObject, entry);
+        }
+
+        public static T UpdateFrom<T>(this Blackbaud.PIA.RE7.BBREAPI._CProposal entry, T dataObject)
+        {
+            return new Loader().UpdateFrom<T, Blackbaud.PIA.RE7.BBREAPI._CProposal>(dataObject, entry);
+        }  
     }
 }
