@@ -6,7 +6,27 @@ using System.Text;
 namespace Parise.RaisersEdge.Toolkit.Entities.Managed
 {
     public class BatchAPI : Blackbaud.PIA.RE7.BBREAPI.CBatchAPIClass, IDisposable
-    {        
+    {
+        public static bool BatchExists(string batchNumber)
+        {
+            Blackbaud.PIA.RE7.BBREAPI.CBatchAPIClass b = new Blackbaud.PIA.RE7.BBREAPI.CBatchAPIClass();
+            b.Init(Singleton.RaisersEdgeAPI.Instance.ManagedSessionContext);
+            bool exists = false;
+            try
+            {
+                b.LoadByNumber(batchNumber);
+                b.CloseDown();
+                exists = true;
+            }
+            catch
+            {
+                exists = false;
+            }
+
+            return exists;
+
+        }
+
         protected Blackbaud.PIA.RE7.BBREAPI.IBBSessionContext _sess;
 
         public BatchAPI() : base() 
@@ -26,7 +46,6 @@ namespace Parise.RaisersEdge.Toolkit.Entities.Managed
                 AddGiftField(field);
             }
         }
-
        
         public BatchAPI(string batchNumber)
             : base()
@@ -34,6 +53,26 @@ namespace Parise.RaisersEdge.Toolkit.Entities.Managed
             _sess = Singleton.RaisersEdgeAPI.Instance.ManagedSessionContext;
             base.Init(_sess);
             base.LoadByNumber(batchNumber);
+        }
+
+        public BatchAPI(string batchNumber, string templateBatchNumber)
+            : base()
+        {
+            _sess = Singleton.RaisersEdgeAPI.Instance.ManagedSessionContext;
+            base.Init(_sess);
+            base.set_Fields(Blackbaud.PIA.RE7.BBREAPI.EBatchAPIFields.BATCHAPI_fld_BATCH_NUMER, batchNumber);
+
+            BatchAPI template = new BatchAPI(templateBatchNumber);
+
+            var max = template.BFields.Count();
+            var fieldDefs = template.BFields;
+            var fieldTypes = template.FieldNumbers;
+
+            for (int i = 1; i <= max; i++)
+            {
+                this.AddGiftField(fieldTypes.ElementAt(i - 1));
+                this.BFields.Item(i).set_Fields(Blackbaud.PIA.RE7.BBREAPI.EBatchFieldFields.BatchField_fld_DefaultData, fieldDefs.Item(i).get_Fields(Blackbaud.PIA.RE7.BBREAPI.EBatchFieldFields.BatchField_fld_DefaultData));
+            }
         }
 
         public Blackbaud.PIA.RE7.BBREAPI._CBatchFields BFields
@@ -49,6 +88,22 @@ namespace Parise.RaisersEdge.Toolkit.Entities.Managed
             Blackbaud.PIA.RE7.BBREAPI._CBatchField field = ((Blackbaud.PIA.RE7.BBREAPI._CBatchFields)base.BatchFields).Add();
             field.set_Fields(Blackbaud.PIA.RE7.BBREAPI.EBatchFieldFields.BatchField_fld_MetaObjectId, Blackbaud.PIA.RE7.BBREAPI.bbMetaObjects.bbmoGIFT);
             field.set_Fields(Blackbaud.PIA.RE7.BBREAPI.EBatchFieldFields.BatchField_fld_FieldNumber, fieldType);
+        }
+
+        public void AddGiftField(int fieldType)
+        {
+            Blackbaud.PIA.RE7.BBREAPI._CBatchField field = ((Blackbaud.PIA.RE7.BBREAPI._CBatchFields)base.BatchFields).Add();
+            field.set_Fields(Blackbaud.PIA.RE7.BBREAPI.EBatchFieldFields.BatchField_fld_MetaObjectId, Blackbaud.PIA.RE7.BBREAPI.bbMetaObjects.bbmoGIFT);
+            field.set_Fields(Blackbaud.PIA.RE7.BBREAPI.EBatchFieldFields.BatchField_fld_FieldNumber, fieldType);
+        }
+
+        public IEnumerable<int> FieldNumbers
+        {
+            get
+            {
+                return ((Blackbaud.PIA.RE7.BBREAPI._CBatchFields)base.BatchFields).Cast<Blackbaud.PIA.RE7.BBREAPI._CBatchField>().Select(b =>
+                    int.Parse(b.get_Fields(Blackbaud.PIA.RE7.BBREAPI.EBatchFieldFields.BatchField_fld_FieldNumber).ToString()));
+            }
         }
 
         public IEnumerable<Blackbaud.PIA.RE7.BBREAPI.EGiftFields> GiftFields
@@ -75,7 +130,7 @@ namespace Parise.RaisersEdge.Toolkit.Entities.Managed
             //((Blackbaud.PIA.RE7.BBREAPI._CTempRecords)base.TempRecords).UpdateBatchTempWithTempRecords();
 
             Blackbaud.PIA.RE7.BBREAPI.CTempRecordClass tempRecord = ((Blackbaud.PIA.RE7.BBREAPI.CTempRecordClass)((Blackbaud.PIA.RE7.BBREAPI.CTempRecords)TempRecords).Add());            
-
+            
             return tempRecord;
         }
 
@@ -110,9 +165,10 @@ namespace Parise.RaisersEdge.Toolkit.Entities.Managed
                 wasSaved = true;
             }
             catch (System.Runtime.InteropServices.COMException badSave)
-            {
+            {                
                 deniedMsg = badSave.Message + "\nStack Trace: " + badSave.StackTrace;
                 wasSaved = false;
+                //throw badSave;
             }
 
             return new ManagedSaveResult(wasSaved, ManagedSaveResult.SaveResult.UnknownFailure, deniedMsg);

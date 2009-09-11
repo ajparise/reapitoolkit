@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Blackbaud.PIA.RE7.BatchData, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files\Blackbaud\The Raisers Edge 7\PIA\Blackbaud.PIA.RE7.BatchData.dll</HintPath>
+    </Reference>
     <Reference Include="Blackbaud.PIA.RE7.BBREAPI, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ManagedREAPI\reapi resources\Blackbaud.PIA.RE7.BBREAPI.dll</HintPath>

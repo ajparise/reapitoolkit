@@ -71,15 +71,42 @@ namespace Parise.RaisersEdge.Toolkit.Entities.Managed.Singleton
             }
         }
 
+        public static void ReInitializeInstance()
+        {
+            SingletonInternal.reInitialize();
+        }
+
         private class SingletonInternal
         {
+            internal static void reInitialize()
+            {
+                if (instance != null)
+                {
+                    if (RaisersEdgeAPI.UseSampleDatabase)
+                    {
+                        instance.InitManaged(RESampleSerial, RESampleAccountName, RESampleAccountPassword, RESampleDatabaseNumber, Blackbaud.PIA.RE7.BBREAPI.AppMode.amServer);
+                    }
+                    else
+                    {
+                        instance.InitManaged(_RESerial, _REAccountName, _REAccountPassword, _REDatabaseNumber, Blackbaud.PIA.RE7.BBREAPI.AppMode.amServer);
+                    }
+                }
+                else
+                {
+                    instance = RaisersEdgeAPI.UseSampleDatabase ?
+                    new Parise.RaisersEdge.Toolkit.Entities.Managed.RaisersEdgeAPI(RESampleSerial, RESampleAccountName, RESampleAccountPassword, RESampleDatabaseNumber, Blackbaud.PIA.RE7.BBREAPI.AppMode.amServer)
+                    :
+                    new Parise.RaisersEdge.Toolkit.Entities.Managed.RaisersEdgeAPI(_RESerial, _REAccountName, _REAccountPassword, _REDatabaseNumber, Blackbaud.PIA.RE7.BBREAPI.AppMode.amServer);
+                }
+            }
+
             // Explicit static constructor to tell C# compiler
             // not to mark type as beforefieldinit.
             static SingletonInternal()
             {
             }
 
-            internal static readonly Parise.RaisersEdge.Toolkit.Entities.Managed.RaisersEdgeAPI instance =
+            internal static Parise.RaisersEdge.Toolkit.Entities.Managed.RaisersEdgeAPI instance =
                     RaisersEdgeAPI.UseSampleDatabase ?
                         new Parise.RaisersEdge.Toolkit.Entities.Managed.RaisersEdgeAPI(RESampleSerial, RESampleAccountName, RESampleAccountPassword, RESampleDatabaseNumber, Blackbaud.PIA.RE7.BBREAPI.AppMode.amServer)
                         :

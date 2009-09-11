@@ -369,4 +369,80 @@ namespace Parise.RaisersEdge.Toolkit.Mapping.Attributes
         }
     }
 
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+    public sealed class ConstituentCodeMappingAttribute : BaseMapAttribute
+    {
+        public ConstituentCodeMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.ECONSTITUENT_CODEFields  fieldToMap)
+            : base(fieldToMap, false)
+        {
+        }
+
+        public ConstituentCodeMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.ECONSTITUENT_CODEFields fieldToMap, bool readOnly)
+            : base(fieldToMap, readOnly)
+        {
+        }
+
+        public ConstituentCodeMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.ECONSTITUENT_CODEFields fieldToMap, bool readOnly, bool convertREBoolean)
+            : base(fieldToMap, readOnly, convertREBoolean)
+        {
+        }
+    }
+
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+    public sealed class RecordSolicitorMappingAttribute : BaseMapAttribute
+    {
+        public RecordSolicitorMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.ERecordSolicitorFields fieldToMap)
+            : base(fieldToMap, false)
+        {
+        }
+
+        public RecordSolicitorMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.ERecordSolicitorFields fieldToMap, bool readOnly)
+            : base(fieldToMap, readOnly)
+        {
+        }
+
+        public RecordSolicitorMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.ERecordSolicitorFields fieldToMap, bool readOnly, bool convertREBoolean)
+            : base(fieldToMap, readOnly, convertREBoolean)
+        {
+        }
+    }
+
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+    public sealed class ProposalMappingAttribute : BaseMapAttribute
+    {
+        public ProposalMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EPROPOSALFields fieldToMap)
+            : base(fieldToMap, false)
+        {
+        }
+
+        public ProposalMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EPROPOSALFields fieldToMap, bool readOnly)
+            : base(fieldToMap, readOnly)
+        {
+        }
+
+        public ProposalMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EPROPOSALFields fieldToMap, bool readOnly, bool convertREBoolean)
+            : base(fieldToMap, readOnly, convertREBoolean)
+        {
+        }
+    }
+
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+    public sealed class ProposalGiftMappingAttribute : BaseMapAttribute
+    {
+        public ProposalGiftMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EProposalGiftFields fieldToMap)
+            : base(fieldToMap, false)
+        {
+        }
+
+        public ProposalGiftMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EProposalGiftFields fieldToMap, bool readOnly)
+            : base(fieldToMap, readOnly)
+        {
+        }
+
+        public ProposalGiftMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EProposalGiftFields fieldToMap, bool readOnly, bool convertREBoolean)
+            : base(fieldToMap, readOnly, convertREBoolean)
+        {
+        }
+    }
+
 }
