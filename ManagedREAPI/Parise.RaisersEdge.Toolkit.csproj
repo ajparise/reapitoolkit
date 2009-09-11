@@ -119,7 +119,6 @@
     <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.RELibB.dll" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="RaisersEdge.API.ToolKit.pfx" />
     <None Include="REAPIToolkit.snk" />
     <None Include="ToolKitDiagram.cd" />
   </ItemGroup>
