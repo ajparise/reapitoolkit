@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REDAPServiceLibrary", "REDAPServiceLibrary\REDAPServiceLibrary.csproj", "{20544BA4-98B8-4AEC-8114-D7B11C0085AF}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs09.codeplex.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = REDAPServiceLibrary\\REDAPServiceLibrary.csproj
+		SccProjectName1 = REDAPServiceLibrary
+		SccLocalPath1 = REDAPServiceLibrary
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20544BA4-98B8-4AEC-8114-D7B11C0085AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20544BA4-98B8-4AEC-8114-D7B11C0085AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20544BA4-98B8-4AEC-8114-D7B11C0085AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20544BA4-98B8-4AEC-8114-D7B11C0085AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
