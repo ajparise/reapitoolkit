@@ -39,22 +39,30 @@
   <ItemGroup>
     <Reference Include="Blackbaud.PIA.RE7.BatchData, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL" />
     <Reference Include="Blackbaud.PIA.RE7.BBInterfaces, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL" />
-    <Reference Include="Blackbaud.PIA.RE7.BBREAPI, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="Blackbaud.PIA.RE7.BBREAPI, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL" />
     <Reference Include="Blackbaud.PIA.RE7.CFAData, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Toolkit.Resources\7.85\Blackbaud.PIA.RE7.CFAData.dll</HintPath>
     </Reference>
-    <Reference Include="Blackbaud.PIA.RE7.GiftData, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL" />
-    <Reference Include="Blackbaud.PIA.RE7.IObjectSafety, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL" />
+    <Reference Include="Blackbaud.PIA.RE7.GiftData, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Toolkit.Resources\7.85\Blackbaud.PIA.RE7.GiftData.dll</HintPath>
+    </Reference>
+    <Reference Include="Blackbaud.PIA.RE7.IObjectSafety, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Toolkit.Resources\7.85\Blackbaud.PIA.RE7.IObjectSafety.dll</HintPath>
+    </Reference>
     <Reference Include="Blackbaud.PIA.RE7.REAPI, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Toolkit.Resources\7.85\Blackbaud.PIA.RE7.REAPI.dll</HintPath>
     </Reference>
     <Reference Include="Blackbaud.PIA.RE7.RELibA, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Toolkit.Resources\7.85\Blackbaud.PIA.RE7.RELibA.dll</HintPath>
     </Reference>
     <Reference Include="Blackbaud.PIA.RE7.RELibB, Version=7.9.9.9, Culture=neutral, PublicKeyToken=d32fc0c6276b37c8, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Toolkit.Resources\7.85\Blackbaud.PIA.RE7.RELibB.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -106,24 +114,30 @@
     <Compile Include="Toolkit.Entities\Managed\Query.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.BatchData.dll">
+    <Content Include="Toolkit.Resources\7.85\Blackbaud.PIA.RE7.BatchData.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.BBInterfaces.dll" />
-    <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.BBREAPI.dll" />
-    <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.CFAData.dll" />
-    <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.GiftData.dll" />
-    <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.IObjectSafety.dll" />
-    <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.REAPI.dll" />
-    <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.RELibA.dll" />
-    <Content Include="Toolkit.Resources\Blackbaud.PIA.RE7.RELibB.dll" />
+    <Content Include="Toolkit.Resources\7.85\Blackbaud.PIA.RE7.BBInterfaces.dll" />
+    <Content Include="Toolkit.Resources\7.85\Blackbaud.PIA.RE7.BBREAPI.dll" />
+    <Content Include="Toolkit.Resources\7.91\Blackbaud.PIA.RE7.BatchData.dll" />
+    <Content Include="Toolkit.Resources\7.91\Blackbaud.PIA.RE7.BBInterfaces.dll" />
+    <Content Include="Toolkit.Resources\7.91\Blackbaud.PIA.RE7.BBREAPI.dll" />
+    <Content Include="Toolkit.Resources\7.91\Blackbaud.PIA.RE7.CFAData.dll" />
+    <Content Include="Toolkit.Resources\7.91\Blackbaud.PIA.RE7.GiftData.dll" />
+    <Content Include="Toolkit.Resources\7.91\Blackbaud.PIA.RE7.IObjectSafety.dll" />
+    <Content Include="Toolkit.Resources\7.91\Blackbaud.PIA.RE7.REAPI.dll" />
+    <Content Include="Toolkit.Resources\7.91\Blackbaud.PIA.RE7.RELibA.dll" />
+    <Content Include="Toolkit.Resources\7.91\Blackbaud.PIA.RE7.RELibB.dll" />
+    <Content Include="Toolkit.Resources\7.85\Blackbaud.PIA.RE7.GiftData.dll" />
+    <Content Include="Toolkit.Resources\7.85\Blackbaud.PIA.RE7.IObjectSafety.dll" />
+    <Content Include="Toolkit.Resources\7.85\Blackbaud.PIA.RE7.REAPI.dll" />
+    <Content Include="Toolkit.Resources\7.85\Blackbaud.PIA.RE7.RELibA.dll" />
+    <Content Include="Toolkit.Resources\7.85\Blackbaud.PIA.RE7.RELibB.dll" />
+    <Content Include="Toolkit.Resources\7.85\Blackbaud.PIA.RE7.CFAData.dll" />
   </ItemGroup>
   <ItemGroup>
     <None Include="REAPIToolkit.snk" />
     <None Include="ToolKitDiagram.cd" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Toolkit.Entities\UnManaged\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
