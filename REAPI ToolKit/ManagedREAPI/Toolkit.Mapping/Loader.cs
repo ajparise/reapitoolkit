@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
 namespace Parise.RaisersEdge.Toolkit.Mapping
 {
     public class Loader
@@ -53,13 +54,26 @@ namespace Parise.RaisersEdge.Toolkit.Mapping
                             // Get defined type on data object
                             Type propValueType = prop.GetSetMethod().GetParameters().FirstOrDefault().ParameterType;
 
+                            var propertyDescriptors = TypeDescriptor.GetProperties(typeof(T));
+                            var propertyDescriptor = propertyDescriptors.Find(prop.Name, true);
+                            var underlyingType = Nullable.GetUnderlyingType(propertyDescriptor.PropertyType);
+
                             Type nullType = System.Nullable.GetUnderlyingType(propValueType);
-                            if (nullType != null)
+                            if (underlyingType != null)
                             {
-                                propValueType = nullType;
+                                var converter = propertyDescriptor.Converter;
+                                if (converter != null)
+                                {
+                                    var convertedValue = converter.ConvertFrom(fieldValue);
+                                    prop.SetValue(dataObject, convertedValue, null);
+                                }
+                                //propValueType = nullType;
                             }
-                            // Set the field value to the data object
-                            prop.SetValue(dataObject, Convert.ChangeType(fieldValue, propValueType), null);
+                            else
+                            {
+                                // Set the field value to the data object
+                                prop.SetValue(dataObject, Convert.ChangeType(fieldValue, propValueType), null);
+                            }
                         }
                     }
                 }
@@ -121,7 +135,13 @@ namespace Parise.RaisersEdge.Toolkit.Mapping
                             {
                                 //if (currentFieldValue == null || !currentFieldValue.Equals(fieldValue))
                                 {
-                                    apiSetFieldProp.Invoke(apiObject, new object[] { mapAttribute.FieldToMap, fieldValue });
+                                    try
+                                    {
+                                        apiSetFieldProp.Invoke(apiObject, new object[] { mapAttribute.FieldToMap, fieldValue });
+                                    }
+                                    catch
+                                    {
+                                    }
                                 }
                             }
                         }

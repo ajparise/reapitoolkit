@@ -87,18 +87,18 @@ namespace Parise.RaisersEdge.Toolkit.Mapping.Attributes
     }
 
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-    public sealed class ActonMappingAttribute : BaseMapAttribute
+    public sealed class ActionMappingAttribute : BaseMapAttribute
     {
-        public ActonMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EACTIONFields fieldToMap) : base(fieldToMap, false)
+        public ActionMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EACTIONFields fieldToMap) : base(fieldToMap, false)
         {
         }
 
-        public ActonMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EACTIONFields fieldToMap, bool readOnly)
+        public ActionMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EACTIONFields fieldToMap, bool readOnly)
             : base(fieldToMap, readOnly)
         {
         }
 
-        public ActonMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EACTIONFields fieldToMap, bool readOnly, bool convertREBoolean)
+        public ActionMappingAttribute(Blackbaud.PIA.RE7.BBREAPI.EACTIONFields fieldToMap, bool readOnly, bool convertREBoolean)
             : base(fieldToMap, readOnly, convertREBoolean)
         {
         }
