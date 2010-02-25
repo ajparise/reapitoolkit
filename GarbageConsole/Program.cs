@@ -87,10 +87,10 @@ namespace GarbageConsole
             //    );
 
             Parise.RaisersEdge.Toolkit.Entities.Managed.Singleton.RaisersEdgeAPI.UseSampleDatabase = false;
-            Parise.RaisersEdge.Toolkit.Entities.Managed.Singleton.RaisersEdgeAPI.REAccountName = "reapi service secondary";
-            Parise.RaisersEdge.Toolkit.Entities.Managed.Singleton.RaisersEdgeAPI.REAccountPassword = "raisers edge api integration";
+            Parise.RaisersEdge.Toolkit.Entities.Managed.Singleton.RaisersEdgeAPI.REAccountName = "";
+            Parise.RaisersEdge.Toolkit.Entities.Managed.Singleton.RaisersEdgeAPI.REAccountPassword = "";
             Parise.RaisersEdge.Toolkit.Entities.Managed.Singleton.RaisersEdgeAPI.REDatabaseNumber = 1;
-            Parise.RaisersEdge.Toolkit.Entities.Managed.Singleton.RaisersEdgeAPI.RESerial = "RE7ASAREA301835";
+            Parise.RaisersEdge.Toolkit.Entities.Managed.Singleton.RaisersEdgeAPI.RESerial = "";
 
             //Parise.RaisersEdge.Toolkit.Entities.Managed.BatchAPI bapi = new BatchAPI("Default CC");
 
